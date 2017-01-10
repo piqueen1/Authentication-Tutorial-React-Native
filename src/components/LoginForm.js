@@ -4,10 +4,12 @@ import firebase from 'firebase';
 import { Button, Card, CardSection, Input } from './common';
 
 class LoginForm extends Component {
-	state = { email: '', password: '' };
+	state = { email: '', password: '', error: '' };
 
 	onButtonPress() {
-		const { email, password, error: '' } = this.state;
+		const { email, password } = this.state;
+
+		this.setState({ error: '' });
 
 		firebase.auth().signInWithEmailAndPassword(email, password)
 			.catch(() => {
