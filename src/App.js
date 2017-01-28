@@ -6,6 +6,8 @@ import LoginForm from './components/LoginForm';
 
 
 class App extends Component {
+	state = { loggedIn: false };
+
 	componentWillMount() {
 		firebase.initializeApp({
 		    apiKey: 'AIzaSyAakTqngSR1yObc3_t-5UZWnR_qUvCfrIg',
@@ -14,6 +16,10 @@ class App extends Component {
 		    storageBucket: 'auth-2588f.appspot.com',
 		    messagingSenderId: '417551463811'
 		 });
+
+		firebase.auth().onAuthStateChanged((user) => {
+
+		});
 	}
 
 	render () {
